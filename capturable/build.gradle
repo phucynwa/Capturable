@@ -90,3 +90,8 @@ dokkaHtml.configure {
 }
 
 apply plugin: 'com.vanniktech.maven.publish'
+
+signing {
+    required { gradle.taskGraph.hasTask("publish") }
+    sign publishing.publications
+}
